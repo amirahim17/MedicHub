@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MedicHub</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+			
+        }
+
+        body {
+            background-color: #f2f2f2;
+            color: #262626;
+            scroll-behavior: smooth;
+			background: url(medichub1.png) no-repeat center center fixed;
+			background-size: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            background: #0D4458;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(34, 30, 92);
+        }
+
+        nav ul li .login-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        nav ul li .login-btn i {
+            font-size: 20px;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li .login-btn i:hover {
+            color: rgba(34, 30, 92);
+        }
+
+        .clinic-info {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .clinic-info h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #022332;
+        }
+
+        .clinic-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .clinic-info .highlight {
+            color: #c850c0;
+            font-weight: 600;
+        }
+
+        .clinic-info .vision-mission {
+            margin-top: 20px;
+        }
+
+        .clinic-info .vision-mission h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #022332;
+            margin-bottom: 10px;
+        }
+
+        .clinic-info .vision-mission p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #4158d0;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #3448b7;
+        }
+
+        .service-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to MedicHub</h1>
+        <nav>
+            <ul>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="mainPageForm.html" class="login-btn"><i class="fas fa-sign-in-alt"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" id="about-us">
+        <div class="clinic-info">
+            <h2>About Our Clinic</h2>
+            <p>Welcome to <span class="highlight">MedicHub</span>, your premier destination for top-notch healthcare services. We are dedicated to providing <span class="highlight">compassionate care</span> and cutting-edge medical solutions. At MedicHub, our mission is to <span class="highlight">enhance your well-being</span> with personalized treatment plans and a team of experienced professionals. Join us in our journey to a healthier future!</p>
+            <div class="vision-mission">
+                <h3>Our Vision</h3>
+                <p>To be the leading healthcare provider, recognized for our commitment to excellence, innovation, and compassionate care.</p>
+                <h3>Our Mission</h3>
+                <p>To provide high-quality, patient-centered care through advanced medical practices, continuous improvement, and a dedicated team of professionals focused on the well-being of our community.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="services" style="display: none;">
+        <div class="clinic-info">
+            <h2>Our Services</h2>
+            <p><b>General Health Screening</b></p>
+            <img src="https://www.makatimed.net.ph/wp-content/uploads/2021/06/6-BENEFITS-1.jpg" alt="Service 1" class="service-img">
+            <p><b>Vaccinations</b></p>
+            <img src="https://richlandhealth.org/wp-content/uploads/2018/02/a-vaccination-to-a-child-PPQN4N4-1080x675.jpg" alt="Service 2" class="service-img">
+            <p><b>Pediatric Care</b></p>
+            <img src="https://www.nimaiborneo.com/images/pediatric-department.png" alt="Service 3" class="service-img">
+            <p><b>Laboratory Services<b></p>
+            <img src="https://mattapanchc.org/images/Demo/blog/lab_services.jpg" alt="Service 4" class="service-img">
+            <p><b>Physiotherapy</b></p>
+            <img src="https://www.care2curephysiotherapy.com/wp-content/uploads/2019/09/physiotherapy_techniques.jpg" alt="Service 5" class="service-img">
+        </div>
+    </div>
+
+    <div class="container" id="contact" style="display: none;">
+        <div class="clinic-info">
+            <h2>Contact Us</h2>
+            <p>Phone: 123-456-789</p>
+            <p>Email: <a href="mailto:info@medichub.com">info@medichub.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get references to the content sections and links
+            var aboutUsSection = document.getElementById("about-us");
+            var servicesSection = document.getElementById("services");
+            var contactSection = document.getElementById("contact");
+
+            var aboutUsLink = document.querySelector("a[href='#about-us']");
+            var servicesLink = document.querySelector("a[href='#services']");
+            var contactLink = document.querySelector("a[href='#contact']");
+
+            // Function to hide all content sections
+            function hideAllSections() {
+                aboutUsSection.style.display = "none";
+                servicesSection.style.display = "none";
+                contactSection.style.display = "none";
+            }
+
+            // Show the About Us section by default
+            hideAllSections();
+            aboutUsSection.style.display = "block";
+
+            // Event listeners for the links
+            aboutUsLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                hideAllSections();
+                aboutUsSection.style.display = "block";
+                document.getElementById("about-us").scrollIntoView();
+            });
+
+            servicesLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                hideAllSections();
+                servicesSection.style.display = "block";
+                document.getElementById("services").scrollIntoView();
+            });
+
+            contactLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                hideAllSections();
+                contactSection.style.display = "block";
+                document.getElementById("contact").scrollIntoView();
+            });
+
+            // Intersection Observer to add the visible class
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            var containers = document.querySelectorAll('.container');
+            containers.forEach(function(container) {
+                observer.observe(container);
+            });
+        });
+    </script>
+</body>
+</html>

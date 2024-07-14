@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MEDICHUB</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+ /* Existing CSS code */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #fff;
+    color: rgb(130, 106, 251);
+  }
+
+  header {
+    background-color: #0D4458;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  header h1 {
+	color:#fff;
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .container {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    background:  #0D4458;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 120px; 
+  }
+
+  .container header {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .container .form {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .form .input-box {
+    width: 100%;
+  }
+
+  .input-box label {
+    color: #fff;
+  }
+
+  .form .input-box input,
+  .select-box select {
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #000;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    background: #fff;
+  }
+
+  .input-box input:focus,
+  .select-box select:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+ 
+
+  .address .input-box {
+    grid-column: span 2;
+  }
+
+  .form button {
+    height: 55px;
+    width: 100%;
+    color: rgb(130, 106, 251);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #fff;
+    grid-column: span 2;
+  }
+
+  .form button:hover {
+    background:  rgb(34, 30, 92);
+    color: #fff;
+  }
+
+  .form .back-button {
+    margin-top: 10px;
+    background: #f2f2f2;
+    color: rgb(130, 106, 251);
+  }
+
+  .form .back-button:hover {
+    background: rgb(200, 200, 200);
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .form {
+      grid-template-columns: 1fr;
+    }
+  }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MedicHub Medicine </h1>
+    </header>
+
+    <section class="container">
+        <form action="registerMed.php" method="POST" class="form" novalidate>
+            <div class="input-box">
+                <label>Name of Medicine</label>
+                <input type="text" name="medName" placeholder="Enter medicine's name" required />
+            </div>
+
+            <div class="input-box">
+                <label>Manufacturing Date</label>
+                <input type="date" name="mfgDate" placeholder="Enter manufacturing date" required />
+            </div>
+
+            <div class="input-box">
+                <label>Expiry Date</label>
+                <input type="date" name="expDate" placeholder="Enter expiry date" required />
+            </div>
+
+            <div class="input-box">
+                <label>Quantity</label>
+                <input type="text" name="quantity" placeholder="Enter quantity" required />
+            </div>
+
+            <div class="input-box">
+                <label>Manufacturer's Factory</label>
+                <input type="text" name="medFactory" placeholder="Enter manufacturer's factory name" required />
+            </div>
+			<div>
+			</div>
+            <div class="input-box">
+                <button type="button" onclick="window.location.href='medicineInventory(admin).php'">Back</button>
+            </div>
+
+            <div class="input-box">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function validateForm(event) {
+            const form = document.querySelector('form');
+            const fields = form.querySelectorAll('input[required]');
+            let allFilled = true;
+
+            fields.forEach(field => {
+                if (!field.value.trim()) {
+                    allFilled = false;
+                    field.reportValidity();
+                }
+            });
+
+            if (!allFilled) {
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        document.querySelector('form').addEventListener('submit', validateForm);
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<?php session_start(); ?>
+<?php var_dump($_SESSION['patientName']); // or echo $_SESSION['patientName']; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+    <title>MedicHub | Patient</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            color: #262626;
+        }
+
+        header {
+            background: #0D4458;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            background: #fff;
+            color: #fff; 
+            font-size: 18px;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background: #022332;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(34, 30, 92);
+        }
+
+        .nav-button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-button img {
+            width: 30px;
+            height: 30px;
+            filter: invert(100%);
+        }
+
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+
+        .sidebar {
+            background-color: #fff;
+            color: #fff;
+            padding: 20px;
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        .sidebar button {
+            display: inline-block;
+            width: 100%;
+            background: #fff; /* Changed to white background */
+            color: #fff; /* Changed to white color */
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background: #022332;
+			outline: none;
+        }
+
+        .sidebar button:hover {
+            background-color: rgb(34, 30, 92);
+        }
+
+        .main-content {
+            flex-grow: 1;
+			background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-left: 20px;
+            text-align: center;
+        }
+
+        .main-content img {
+            width: 500px;  
+            height: 500px; 
+            margin-bottom: 20px;
+        }
+
+        .main-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .top-buttons button {
+            background: #fff; /* Changed to white background */
+            color: #fff; /* Changed to white color */
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background: #6c63ff;
+        }
+
+        .top-buttons button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+		.header-logout{
+			position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            cursor: pointer;
+		}
+		.header-logout img {
+            width: 30px;
+            height: 30px;
+            filter: invert(100%);
+        }
+
+        .header-logout img:hover {
+            filter: brightness(50%);
+        }
+		.service-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            display: block;
+        }
+		.clinic-info {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="hidden" id="userID" value="<?php echo $_SESSION['userID'];?>">
+    <header>
+        <h1>MedicHub | Patient </h1>
+        <nav>
+			<div class="header-logout" onclick="if (confirm('Are you sure you want to log out?')) window.location.href = 'logout.php'">
+            <img src="https://cdn-icons-png.flaticon.com/128/3889/3889524.png" alt="Logout">
+			</div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <button id="medRecord" onclick="var userID= document.getElementById('userID').value; console.log('userID:', userID); window.location.href = 'medicalRecords(patient).php?userType=patient&userID=' +userID;">MEDICAL RECORD</button>
+			<button id="profileButton" onclick="var userID = document.getElementById('userID').value; console.log('userID:', userID); window.location.href = 'profile.php?userType=patient&userID=' + userID;">MY PROFILE</button>
+            <button id="aptButton" onclick="window.location.href='AppointmentPage(patient).php'">APPOINTMENT</button>
+        </div>
+        <div class="main-content">
+            <img src="medicHubLogo.png" alt="Medic Hub Logo">
+        </div>
+    </div>
+</body>
+</html>
